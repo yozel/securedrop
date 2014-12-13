@@ -102,10 +102,10 @@ def check_tor2web():
         # ignore_static here so we only flash a single message warning about Tor2Web,
         # corresponding to the intial page load.
     if 'X-tor2web' in request.headers:
-        flash('<strong>WARNING:</strong> You appear to be using Tor2Web. '
-              'This <strong>does not</strong> provide anonymity. '
-              '<a href="/tor2web-warning">Why is this dangerous?</a>',
-              "banner-warning")
+        flash('<strong>UYARI:</strong> Tor2Web kullaniyor gibi gorunuyorsunuz. '
+              'Tor2Web size anonimlik <strong>saglamaz</strong>. '
+              '<a href="/tor2web-warning">Bu neden tehlikeli?</a>',
+              "header-warning")
 
 
 @app.route('/')
@@ -239,16 +239,16 @@ def submit():
         g.source.interaction_count += 1
         fnames.append(store.save_message_submission(g.sid, g.source.interaction_count,
             journalist_filename, msg))
-        flash("Thanks! We received your message.", "notification")
+        flash("Tesekkurler! Mesajini aldik.", "notification")
     if fh:
         g.source.interaction_count += 1
         fnames.append(store.save_file_submission(g.sid, g.source.interaction_count,
             journalist_filename, fh.filename, fh.stream))
-        flash('{} "{}".'.format("Thanks! We received your document",
+        flash('{} "{}".'.format("Tesekkurler! Gonderdigin dosyayi aldik",
                                 fh.filename or '[unnamed]'), "notification")
 
     if first_submission:
-        flash("Thanks for submitting something to SecureDrop! Please check back later for replies.",
+        flash("KARAKUTU'ya bir seyler yolladigin icin tesekkurler. Lutfen daha sonra cevap icin kod adinizla KARAKUTU'ya giris yapin.",
               "notification")
 
     for fname in fnames:
@@ -279,7 +279,7 @@ def delete():
     if msgid not in potential_files:
         abort(404)  # TODO are the checks necessary?
     store.secure_unlink(store.path(g.sid, msgid))
-    flash("Reply deleted", "notification")
+    flash("Cevap silindi", "notification")
 
     return redirect(url_for('lookup'))
 
@@ -299,7 +299,7 @@ def login():
             if valid:
                 session.update(codename=codename, logged_in=True)
                 return redirect(url_for('lookup', from_login='1'))
-        flash("Sorry, that is not a recognized codename.", "error")
+        flash("Uzgunuz, taninlanamayan kod ad.", "error")
     return render_template('login.html')
 
 

@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% block body %}
 
-<h1>Disable JavaScript to Protect Your Anonymity</h1>
+<h1>Gizliğini Korumak İçin Javascript'leri Devre Dışı Bırak</h1>
 
-<p>JavaScript is a widely used programming language for creating interactive web pages. Unfortunately, JavaScript is also the most common source of security vulnerabilities in browsers. In August 2013, the FBI wrote malware that used a JavaScript exploit to de-anonymize Tor users (http://www.wired.com/threatlevel/2013/09/freedom-hosting-fbi). JavaScript exploits are also mentioned in documents describing the NSA's Egotistical Giraffe (http://www.theguardian.com/world/interactive/2013/oct/04/egotistical-giraffe-nsa-tor-document) program, which also has the goal of targeting and de-anonymizing Tor users.</p>
+<p>Javascript, interaktif web sayfaları oluşturmak için çokça kullanılan bir programlama dilidir. Malesef ki, Javascript aynı zamanda güvenlik açıklarının ihlal edilmesi konusunda yaygın olarak kullanılan bir dildir. Örneğin, 2013 Ağustos ayında FBI, bir internet tarayıcısının güvenlik açığını Javascript'ler aracılığı ile ihlal ederek “tarayıcısının Javascript'lerini devre dışı bırakmayan” bazı Tor kullanıcılarının kimliklerini öğrenmiştir. Ayrıca amacı Tor kullanıcılarının kimliklerini ortaya çıkartmak olan "Egotistical Giraffe" (http://www.theguardian.com/world/interactive/2013/oct/04/egotistical-giraffe-nsa-tor-document) isimli NSA projesinin, kullanıcıların aktif olan Javascript'leri yoluyla çalıştığı biliniyor.</p>
 
-<p>We encourage SecureDrop users to disable JavaScript to protect themselves from malware that would use it to attack their browser and potentially de-anonymize them. There are other ways to get hacked, but given the use of JavaScript-based attacks recently, we believe it is prudent to disable it at this time.</p>
+<p>Bu tür durumlardan dolayı, KARAKUTU kullanıcılarının Javascript'leri engelleyerek kendilerini tarayıcılarına saldırabilecek bazı kodlardan korumalarını ve kendi anonimliklerini arttırmalarını öneriyoruz. Javascript'teki tehlike sadece bu tür exploitlerin kaynağı olması değil, aynı anda da son zamanlarda yapılan bazı saldırılarda kullanılmasıdır. Bundan dolayı Javascript'in engellenmesinin gerekli olduğunu düşünüyoruz.</p>
 
-<p>The Tor Browser comes with an add-on called NoScript that can be used to completely disable JavaScript by default, and to only enable it for sites that you trust.</p>
+<p>Tor Browser NoScript isimli, Javascript'leri tamamen engelleyen bir eklentiyle beraber gelmektedir.</p>
 
-<p><strong>To disable JavaScript in Tor Browser, click the NoScript icon <img src="/static/i/no16.png"/> to the left of the address bar above and choose "Forbid Scripts Globally (advised)".</strong></p>
+<p><strong>Tor Browser Bundle kullanıyorsan Javascript'leri engellemek için, adres çubuğunun solundaki NoScript simgesine (<img src="/static/i/no16.png"/>) tıklayıp "Forbid Scripts Globally (advised)" seçeneğini seçmen yeterli.</strong></p>
 
 {% endblock %}

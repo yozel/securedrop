@@ -1,26 +1,26 @@
 {% extends "base.html" %}
 {% block body %}
-<h2>Why download the journalist's public key?</h2>
-<p>SecureDrop encrypts files and messages after they are submitted. Encrypting messages and files before submission can provide an extra layer of security before your data reaches the SecureDrop server.</p>
-<p>If you are already familiar with the GPG encryption software, you may wish to encrypt your submissions yourself. To do so:
+<h2>Neden KARAKUTU'nun genel anahtarını indirmeliyim?</h2>
+<p>KARAKUTU kendisine gönderilen belgeleri ve bilgileri kaydetmeden önce şifreler. Veriyi bir de göndermeden önce şifrelemek ekstra bir katman şifreleme ekleyerek güvenliği arttırır.</p>
+<p>Eğer GPG şifreleme yazılımıyla ilgili önceden bir bilgiye sahipsen, gönderilerini kendin şifrelemek isteyebilirsin. Bunu yapmak için:
 <ol>
-<li><a href="/journalist-key">Download</a> the public key. The public key is a text file with the extension <code>.asc</code></li>
-<li>Import it into your GPG keyring.
+<li>Genel anahtarımızı  <a href="/journalist-key">indir</a>. Genel anahtar dosyası <code>.asc</code> uzantısıyla biten bir metin dosyasıdır.</li>
+<li>GPG anahtarlığınıza bu genel anahtarı ekleyin.
 <ul>
-<li>If you are using Tails (https://tails.boum.org/), you can double-click the <code>.asc</code> file you just downloaded and it will be automatically imported to your keyring.</li>
-<li>If you are using Mac/Linux, open the Terminal. You can import the key with <code>gpg --import /path/to/key.asc</code>.</li>
+<li>Eğer Tails (https://tails.boum.org/) kullanıyorsan, <code>.asc</code> dosyasına çift tıklayarak otomatik olarak ekleyebilirsin.</li>
+<li>Eğer Mac veya Linux kullanıyorsanız, Terminal'i açıp <code>gpg --import /path/to/key.asc</code> şeklinde bir komut girerek ekleyebilirsiniz.</li>
 </ul>
 </li>
-<li>Encrypt your submission.
+<li>Gönderinizi şifreleyin.
 <ol>
-<li>You will need to be able to identify the key (this is called the "user ID" or uid). Since the public key's filename is the key's fingerprint (with .asc at the end), you can just copy and paste that. (don't include the <code>.asc</code>!)</li>
-<li>On all systems, open the Terminal and use this gpg command: <code>gpg --recipient &lt;user ID&gt; --encrypt roswell_photos.pdf</code></li>
+<li>UserID veya uid bölümüne bakarak anahtarı bulun. Anahtarın numarası, dosya adının <code>.asc</code>'den önceki kısmı olduğu için, bu kısmı kopyalayıp yapıştırabilirsiniz.</li>
+<li>İşletim sisteminizde bir Terminal / Komut satırı açın ve <code>gpg --recipient &lt;ANAHTAR&gt; --encrypt dosya_adi.pdf</code> komutunu yazın (komutta ANAHTAR kısmına anahtarınızın 1. adımda edindiğiniz UserID'sini ve dosya_adi.pdf kısmına da dosyanızın adını yazın)</li>
 </ol>
 </li>
-<li>Upload your encrypted submission. It will have the same filename as the unencrypted file, with .gpg at the end (e.g. <code>roswell_photos.pdf.gpg</code>)</li>
+<li>Şifrelenmiş dosyanızı yükleyin. Şifrelenmiş dosyanızın adı, şifrelenmemiş dosyanızın adıyla aynı olacaktır, sadece sonunda .gpg olacaktır (örneğin: <code>dosya_adi.pdf.gpg</code>)</li>
 </ol>
 
-<p><strong>Tip:</strong> If you wish to remain anonymous, <strong>do not</strong> use GPG to sign the encrypted file (with the <code>--sign</code> or <code>-s</code> flag) as this will reveal your GPG identity to us.</p>
+<p><strong>İpucu:</strong> Eğer anonim kalmak istiyorsanız, belgeyi GPG ile <strong>imzalamayın</strong>. Eğer <code>--sign</code> veya <code>-s</code> parametrelerini kullanırsanız belgeyi imzalamış olursunuz. Bu da dosyanın sizin GPG anahtarınızla kimliğinizin tespiti için bağdaştırılabileceği anlamına gelir.</p>
 
-<p><a href="/lookup">&laquo; Back to submission page</a></p>
+<p><a href="/lookup">&laquo; Gönderi sayfasına geri dön</a></p>
 {% endblock %}
